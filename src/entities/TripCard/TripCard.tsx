@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import Button from '../../shared/UI/Button/Button';
 import styles from './styles/tripCard.module.scss';
-import ITrip from './types/ITrip';
+import ITour from '../../shared/types/ITrip';
 
-const TripCard = ({duration, image, id, level, price, title}: ITrip) => {
+const TripCard = ({duration, image, id, level, price, title}: ITour) => {
     return (
         <li data-test-id="trip-card" className={styles.tripCard}>
             <img data-test-id="trip-card-image" src={image} alt="trip photo"/>

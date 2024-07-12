@@ -1,7 +1,7 @@
-import ITrip from '../../../../entities/TripCard/types/ITrip';
+import ITour from '../../../../shared/types/ITrip';
 import styles from './styles/tripInform.module.scss';
 
-const TripInform = ({trip}: {trip: ITrip}) => {
+const TripInform = ({trip}: {trip: ITour}) => {
     return (
         <div className={styles.tripInfo}>
             <h3 data-test-id="book-trip-popup-title" className={styles.tripInfo__title}>

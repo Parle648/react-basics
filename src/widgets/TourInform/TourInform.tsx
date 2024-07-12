@@ -2,13 +2,13 @@ import { useParams } from 'react-router-dom';
 import Button from '../../shared/UI/Button/Button';
 import styles from './styles/tourInform.module.scss';
 import trips from '../../data/trips.json';
-import ITrip from '../../entities/TripCard/types/ITrip';
 import Modal from '../../entities/Modal/Modal';
 import useToggleVisible from '../../shared/hooks/useToggle';
+import ITour from '../../shared/types/ITrip';
 
 const TourInform = () => {
     const {tripId} = useParams();
-    const choosedTrip: ITrip = trips.find(trip => trip.id === tripId) as ITrip
+    const choosedTrip: ITour = trips.find(trip => trip.id === tripId) as ITour
 
     const [visible, toggleVisible] = useToggleVisible(false);
 

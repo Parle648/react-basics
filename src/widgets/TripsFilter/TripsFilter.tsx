@@ -1,18 +1,19 @@
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC, useEffect, useState } from "react";
 import Select from "../../shared/UI/Select/Select";
 import styles from './styles/filters.module.scss';
 import { useLocation, useNavigate } from "react-router-dom";
+import IFilter from "../../shared/types/IFilter";
 
 const TripsFilter: FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const [filters, setFilters] = useState({search: '', duration: '', level: ''})
+    const [filters, setFilters] = useState<IFilter>(location.state ? location.state : {search: '', duration: '', level: ''})
 
-    if (location.state === null) {
+    useEffect(() => {
         navigate('/', {
             state: {search: '', duration: '', level: ''}
         });
-    }
+    }, [])
     
     const chnageFilters = (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
         navigate('/', {

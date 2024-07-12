@@ -1,6 +1,6 @@
-import ITrip from "../../../../../entities/TripCard/types/ITrip";
+import ITour from "../../../../../shared/types/ITrip";
 
 export default interface ITotalPrice {
-    trip: ITrip,
+    trip: ITour,
     guests: number
 }

@@ -4,15 +4,15 @@ import styles from './styles/tripForm.module.scss'
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import trips from '../../data/trips.json';
-import ITrip from '../../entities/TripCard/types/ITrip';
 import TotalPrice from './UI/TotalPrice/TotalPrice';
 import TripInform from './UI/TripInform/TripInform';
 import createBookedTourObject from './helpers/createBookedTourObject';
 import bookings from '../../data/bookings.json';
+import ITour from '../../shared/types/ITrip';
 
 const BookTripForm = ({onSubmit}: {onSubmit: () => void}) => {
     const {tripId} = useParams();
-    const trip = trips.find(trip => trip.id === tripId) as ITrip;
+    const trip = trips.find(trip => trip.id === tripId) as ITour;
     const [inputsState, setInputsState] = useState(['', 0])
 
     const changeInputState = (event: ChangeEvent<HTMLDataElement | HTMLInputElement>, inputType: 'date' | 'number'): void => {

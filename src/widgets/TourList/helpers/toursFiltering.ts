@@ -1,7 +1,7 @@
-import ITrip from "../../../entities/TripCard/types/ITrip";
-import IFilter from "../types/IFilters";
+import IFilter from "../../../shared/types/IFilter";
+import ITour from "../../../shared/types/ITrip";
 
-export default function toursFiltering<T extends ITrip>(tours: T[], filters: IFilter): T[] {
+export default function toursFiltering<T extends ITour>(tours: T[], filters: IFilter): T[] {
     const filteredTrips: T[] = tours.filter((trip: T) => {
         let durationMatch = true;
         

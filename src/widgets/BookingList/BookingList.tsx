@@ -1,11 +1,11 @@
-import { IBookingData } from '../../entities/BookingCard/types/IBookingCard';
 import BookingCard from '../../entities/BookingCard/BookingCard';
 import styles from './styles/bookingList.module.scss';
 import staticBookedTrips from '../../data/bookings.json';
 import { useState } from 'react';
+import IBookedTour from '../../shared/types/IBookedTour';
 
 const BookingList = () => {
-    const [tours, setTours] = useState(staticBookedTrips)
+    const [tours, setTours] = useState<IBookedTour[]>(staticBookedTrips)
     
     const deleteFromBooking = (id: string) => {
         const index = staticBookedTrips.findIndex(tour => tour.id === id)
@@ -15,7 +15,7 @@ const BookingList = () => {
     
     return (
         <div className={styles.bookings__list}>
-            {tours.map(({trip, date, guests, id}: IBookingData) => {
+            {tours.map(({trip, date, guests, id}: IBookedTour) => {
                 return (
                     <BookingCard 
                         key={id}

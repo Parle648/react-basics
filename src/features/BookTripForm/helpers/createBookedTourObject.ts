@@ -1,7 +1,7 @@
-import ITrip from "../../../entities/TripCard/types/ITrip";
-import IBookedTour from "../types/bookedData";
+import IBookedTour from "../../../shared/types/IBookedTour";
+import ITour from "../../../shared/types/ITrip";
 
-export default function createBookedTourObject(tour: ITrip, guests: number, date: string): IBookedTour {
+export default function createBookedTourObject(tour: ITour, guests: number, date: string): IBookedTour {
     const createdAt = new Date();
     return {
         id: `${Math.random() * 1000000}`,
