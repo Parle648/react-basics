@@ -9,8 +9,8 @@ const SignInPage = () => {
             <span>
                 Don't have an account?
                <Link to='/sign-up'>
-                    <span data-test-id="auth-sign-up-link" className="sign-in-form__link">
-                    Sign Up
+                    <span data-test-id="auth-sign-up-link" className={styles.signInForm__link}>
+                     Sign Up
                     </span>
                </Link>
             </span>

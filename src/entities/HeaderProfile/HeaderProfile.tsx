@@ -15,7 +15,7 @@ const HeaderProfile: FC = () => {
                     John Doe
                 </li>
                 <li className={styles.profileNav__item}>
-                    <Link to='/sign-in'>
+                    <Link to='/sign-up'>
                         <Button title={'Sign Out'} dataTextId={'header-profile-nav-sign-out'} type={'button'} />
                     </Link>
                 </li>

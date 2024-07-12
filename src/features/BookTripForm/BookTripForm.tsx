@@ -2,17 +2,17 @@ import Input from '../../shared/UI/Input/Input';
 import Button from '../../shared/UI/Button/Button';
 import styles from './styles/tripForm.module.scss'
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import trips from '../../data/trips.json';
 import ITrip from '../../entities/TripCard/types/ITrip';
 import TotalPrice from './UI/TotalPrice/TotalPrice';
 import TripInform from './UI/TripInform/TripInform';
 import createBookedTourObject from './helpers/createBookedTourObject';
+import bookings from '../../data/bookings.json';
 
-const BookTripForm = () => {
+const BookTripForm = ({onSubmit}: {onSubmit: () => void}) => {
     const {tripId} = useParams();
     const trip = trips.find(trip => trip.id === tripId) as ITrip;
-    const navigate = useNavigate();
     const [inputsState, setInputsState] = useState(['', 0])
 
     const changeInputState = (event: ChangeEvent<HTMLDataElement | HTMLInputElement>, inputType: 'date' | 'number'): void => {
@@ -26,11 +26,8 @@ const BookTripForm = () => {
     
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        navigate("/bookings", {
-            state: {
-                newBooking: createBookedTourObject(trip, +inputsState[1], inputsState[0] as string)
-            }
-        });
+        onSubmit();
+        bookings.push(createBookedTourObject(trip, +inputsState[1], inputsState[0] as string))
     }
 
     return (

@@ -4,7 +4,7 @@ import IBookedTour from "../types/bookedData";
 export default function createBookedTourObject(tour: ITrip, guests: number, date: string): IBookedTour {
     const createdAt = new Date();
     return {
-        id: "73b7df68-62f6-4a5f-9c87-f971637ac7a0",
+        id: `${Math.random() * 1000000}`,
         userId: "1dd97a12-848f-4a1d-8a7d-34a2132fca94",
         tripId: tour.id as string,
         guests: guests,

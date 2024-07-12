@@ -1,32 +1,24 @@
 import { IBookingData } from '../../entities/BookingCard/types/IBookingCard';
 import BookingCard from '../../entities/BookingCard/BookingCard';
 import styles from './styles/bookingList.module.scss';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import staticBookedTrips from '../../data/bookings.json';
+import { useState } from 'react';
 
 const BookingList = () => {
-    const location = useLocation();
-    const [booking, setBooking] = useState<any[]>([]);
+    const [tours, setTours] = useState(staticBookedTrips)
     
-    useEffect(() => {
-        const newBooking = location.state?.newBooking;
-        setBooking(() => {
-            return newBooking ? [location.state.newBooking] : staticBookedTrips;
-        })
-    }, [])
-
     const deleteFromBooking = (id: string) => {
-        setBooking((prev) => {
-            return prev.filter(bookedTravel => bookedTravel.id !== id)
-        })
+        const index = staticBookedTrips.findIndex(tour => tour.id === id)
+        staticBookedTrips.splice(index, index + 1)
+        setTours(staticBookedTrips.filter(tour => tour.id !== id))
     }
     
     return (
         <div className={styles.bookings__list}>
-            {booking.map(({trip, date, guests, id}: IBookingData) => {
+            {tours.map(({trip, date, guests, id}: IBookingData) => {
                 return (
                     <BookingCard 
+                        key={id}
                         title={trip.title} 
                         guests={guests} 
                         date={new Date(date).toLocaleDateString()} 

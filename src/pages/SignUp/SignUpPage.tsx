@@ -8,7 +8,7 @@ const SignUpPage = () => {
             <SignUpForm />
             <span>
                 Already have an account?
-                <Link to="/sign-in"><span data-test-id="auth-sign-in-link" className="sign-up-form__link">Sign In</span></Link>
+                <Link to="/sign-in"><span data-test-id="auth-sign-in-link" className={styles.signUpForm__link}>Sign In</span></Link>
             </span>
         </main>
     );

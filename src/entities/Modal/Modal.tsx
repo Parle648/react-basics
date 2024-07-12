@@ -12,7 +12,7 @@ const Modal = ({onClose}: {onClose: () => void}) => {
             >
                 ×
             </button>
-            <BookTripForm />
+            <BookTripForm onSubmit={onClose} />
             </div>
         </div>
     );

@@ -5,7 +5,7 @@ const OptionsList = ({options}: {options: Option[]}) => {
         <>
         {options.map((option: Option) => {
             return (
-                <option value={option.value}>{option.title}</option>
+                <option key={option.value} value={option.value}>{option.title}</option>
             )
         })}
         </>
