@@ -28,6 +28,7 @@ const BookTripForm = ({onSubmit}: {onSubmit: () => void}) => {
         event.preventDefault();
         onSubmit();
         bookings.push(createBookedTourObject(trip, +inputsState[1], inputsState[0] as string))
+        bookings.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     }
 
     return (

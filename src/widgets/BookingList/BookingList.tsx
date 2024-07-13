@@ -10,7 +10,7 @@ const BookingList = () => {
     const deleteFromBooking = (id: string) => {
         const index = staticBookedTrips.findIndex(tour => tour.id === id)
         staticBookedTrips.splice(index, index + 1)
-        setTours(staticBookedTrips.filter(tour => tour.id !== id))
+        setTours(staticBookedTrips.filter(tour => tour.id !== id).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()))
     }
     
     return (
